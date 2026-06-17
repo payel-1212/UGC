@@ -1,0 +1,483 @@
+/* ==========================================================================
+   1. VARIABLES & BASE RESETS
+   ========================================================================== */
+:root {
+    --primary-color: #6366f1;       /* Indigo */
+    --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    --secondary-color: #0f172a;     /* Deep Slate */
+    --text-main: #334155;          /* Charcoal */
+    --text-muted: #64748b;         /* Muted Gray */
+    --bg-light: #f8fafc;           /* Soft Off-White */
+    --bg-white: #ffffff;
+    --accent-badge: #f43f5e;       /* Rose Red for "Available" badge */
+    --border-radius-sm: 8px;
+    --border-radius-md: 16px;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-subtle: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+    --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-smooth);
+}
+
+/* ==========================================================================
+   2. REUSABLE COMPONENTS (Buttons, Headings)
+   ========================================================================== */
+.section-title {
+    font-size: 2.25rem;
+    color: var(--secondary-color);
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: var(--border-radius-sm);
+    transition: var(--transition-smooth);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--primary-gradient);
+    color: var(--bg-white);
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    margin-left: 16px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color);
+    color: var(--bg-white);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   3. HERO SECTION
+   ========================================================================== */
+.hero-section {
+    background: radial-gradient(circle at 90% 10%, rgba(168, 85, 247, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 10% 80%, rgba(99, 102, 241, 0.06) 0%, transparent 50%);
+    padding: 120px 0 80px 0;
+    text-align: center;
+}
+
+.hero-container {
+    display: flex;
+    justify-content: center;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.badge {
+    display: inline-block;
+    background-color: rgba(244, 63, 94, 0.1);
+    color: var(--accent-badge);
+    padding: 6px 16px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-radius: 50px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(244, 63, 94, 0.2);
+    letter-spacing: 0.5px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: var(--secondary-color);
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero-content .highlight {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tagline {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.location {
+    font-size: 1rem;
+    color: var(--text-main);
+    font-weight: 500;
+    margin-bottom: 36px;
+}
+
+/* ==========================================================================
+   4. STATS SECTION
+   ========================================================================== */
+.stats-section {
+    padding: 20px 0 60px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.stat-card {
+    background-color: var(--bg-white);
+    padding: 32px 24px;
+    border-radius: var(--border-radius-md);
+    text-align: center;
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid #f1f5f9;
+    transition: var(--transition-smooth);
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.stat-card h3 {
+    font-size: 2.5rem;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.stat-card p {
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   5. PORTFOLIO SECTION (Video Grid)
+   ========================================================================== */
+.portfolio-section {
+    padding: 80px 0;
+    background-color: var(--bg-white);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+}
+
+.portfolio-card {
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-subtle);
+    transition: var(--transition-smooth);
+    border: 1px solid #f1f5f9;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Thumbnail wrapper mimicking vertical TikTok/Reel styles */
+.thumbnail-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 133%; /* 3:4 Aspect ratio optimal for reels preview */
+    background-color: #000;
+    overflow: hidden;
+}
+
+.thumbnail-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-card:hover .thumbnail-wrapper img {
+    transform: scale(1.05);
+}
+
+/* Hover overlay for play action */
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.play-icon {
+    background-color: var(--bg-white);
+    color: var(--primary-color);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    padding-left: 4px; /* visually centers the play arrow */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: var(--transition-smooth);
+}
+
+.portfolio-card:hover .play-overlay {
+    opacity: 1;
+}
+
+.portfolio-card:hover .play-icon {
+    transform: scale(1.1);
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.category {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.card-info h3 {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   6. SERVICES SECTION
+   ========================================================================== */
+.services-section {
+    padding: 80px 0;
+    background-color: var(--bg-light);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+}
+
+.service-item {
+    background-color: var(--bg-white);
+    padding: 40px 32px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid #e2e8f0;
+    transition: var(--transition-smooth);
+}
+
+.service-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(99, 102, 241, 0.2);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.service-item h3 {
+    font-size: 1.35rem;
+    color: var(--secondary-color);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.service-item p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   7. CONTACT SECTION
+   ========================================================================== */
+.contact-section {
+    padding: 80px 0;
+    background-color: var(--bg-white);
+}
+
+.contact-container {
+    max-width: 650px !important;
+}
+
+.email-text {
+    color: var(--primary-color);
+    font-weight: 600;
+    border-bottom: 2px solid rgba(99, 102, 241, 0.2);
+}
+
+.email-text:hover {
+    color: #a855f7;
+    border-bottom-color: #a855f7;
+}
+
+.contact-form {
+    background-color: var(--bg-light);
+    padding: 40px;
+    border-radius: var(--border-radius-md);
+    border: 1px solid #e2e8f0;
+    margin-top: 32px;
+}
+
+.form-group {
+    background: var(--bg-white);
+    padding: 20px;
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid #e2e8f0;
+}
+
+.form-group:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1.05rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.form-group label hr {
+    border: 0;
+    height: 1px;
+    background: #e2e8f0;
+    margin: 12px 0;
+}
+
+.form-group label a {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.form-group label a:hover {
+    color: #a855f7;
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   8. FOOTER
+   ========================================================================== */
+.footer {
+    background-color: var(--secondary-color);
+    color: rgba(255, 255, 255, 0.6);
+    padding: 32px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   9. RESPONSIVE DESIGN (Media Queries)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .tagline {
+        font-size: 1.1rem;
+    }
+    
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+    
+    .btn-secondary {
+        margin-left: 0;
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .btn-primary {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .contact-form {
+        padding: 24px;
+    }
+    
+    .section-title {
+        font-size: 1.85rem;
+    }
+}
